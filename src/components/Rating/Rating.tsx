@@ -3,12 +3,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button, Flex, Heading, Text, Image } from '@chakra-ui/react';
 
 interface RatingProps {
+  star: number;
+  changeStar: (star: number) => void;
   submit: (isSubmit: boolean) => void;
 }
 
-function Rating({ submit }: RatingProps) {
-  const [star, setStar] = useState(0);
+function Rating({ star, submit, changeStar }: RatingProps) {
   const [grades, setGrades] = useState([1, 2, 3, 4, 5]);
+
+  console.log(star);
 
   return (
     <Flex flexDirection="column" backgroundColor="hsl(213, 19%, 18%)" p="30px" borderRadius="20px">
@@ -33,7 +36,7 @@ function Rating({ submit }: RatingProps) {
         {grades.map((item) => (
           <Button
             key={uuidv4()}
-            onClick={() => setStar(item)}
+            onClick={() => changeStar(item)}
             borderRadius="50%"
             flex="1 1 20%"
             p="15px 15px"

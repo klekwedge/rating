@@ -1,9 +1,13 @@
 import { Box, Flex, Heading, Text, Image } from '@chakra-ui/react';
 
-function Thanks() {
+interface ThanksProps {
+  star: number;
+}
+
+function Thanks({ star }: ThanksProps) {
   return (
     <Flex flexDirection="column" backgroundColor="hsl(213, 19%, 18%)" p="20px" borderRadius="20px" alignItems="center">
-      <Image src="/public/images/illustration-thank-you.svg" w="150px" mb="20px" p="8px" />
+      <Image src="/images/illustration-thank-you.svg" w="150px" mb="20px" p="8px" />
       <Box
         borderRadius="20px"
         backgroundColor="hsl(216, 12%, 8%)"
@@ -12,13 +16,13 @@ function Thanks() {
         mb="20px"
         p="8px 15px"
       >
-        You selected 4 out of 5
+        You selected {star} out of 5
       </Box>
       <Heading as="h1" fontSize="20px" fontWeight="700" color="white" m="0px">
         Thank you!
       </Heading>
       <Text textAlign="center" as="p" color="hsl(217, 12%, 63%)" fontSize="15px" maxW="340px" lineHeight="150%">
-        We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in
+        We appreciate you taking the time to give a rating. If you ever need more support, don&apos;t hesitate to get in
         touch!
       </Text>
     </Flex>
